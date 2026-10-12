@@ -1,0 +1,26 @@
+body{
+    background-image: url('/components/imgs/bg-img.jpg');
+}
+.top-panel{
+    position: relative;
+    text-align: center;    
+}
+.s-bar{
+    border-radius: 8px;
+    padding: 5px 15px 5px 15px;
+    text-decoration: none;    
+    text-align: start;
+    width: 500px;
+}
+.s-btn{
+    padding: 5px 15px 5px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    background-color: #4196ec;
+    transition: 0.8s;
+}
+.s-btn:hover{
+    scale: 1.1;
+    transition: 0.8s;
+}
