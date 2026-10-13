@@ -6,12 +6,72 @@
     <title>Weather</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+
     <br>
     <div class="top-panel">
         <input type="text" class="s-bar" id="search-bar" placeholder="Enter the City">
-        <button class="s-btn" id="search-btn">Search</button>
-    </div>    
+        <button class="s-btn" onclick=searchCityOnClick()>Search</button>
+    </div>
+    <br>
+    <div class="details-panel">
+        <div class="card" id="c-main">
+            <center>
+                <div class="small-card" style="margin: 20px;">
+                    <div style="display: inline-flex; margin: 0; padding: 10px;">
+                        <img class="l-img" src="components/imgs/location.svg" alt="">
+                        <p class="l-city">Location</p>
+                    </div>
+                </div>
+            </center>
+            <center><p id="day">-- · CURRENT WEATHER</p></center>
+            <div style="display: flex; justify-content: center;">
+                <div class="info-panel" id="info-p">                                
+                    <div style="display: inline-block;">
+                        <center>
+                            <p class="info-p-h5">--°C</p>
+                            <p class="info-p-h5 date-size">--</p>
+                            <p class="info-p-h6">Feels Like--°C</p>
+                        </center>
+                    </div>
+                    <br><br><br>
+                </div>            
+                <div class="img-panel" style="justify-items: flex-end; align-items: center; padding-left: 100px;">
+                    <img src="" alt="" class="card-image" id="c-img">
+                </div>
+            </div>
+            <hr style="width: 90%;">
+            <div class="mini-c">
+                <div class="cards">
+                    <center>
+                        <div style="display: flex; align-items: center; justify-content:center;">
+                            <img src="components/imgs/humidity.svg" alt="" style="width: 18px; padding-right: 5px">
+                            <p class="att">Humidity</p>
+                        </div>
+                        <p class="att">--</p>
+                    </center>
+                </div>
+                <div class="cards">
+                    <center>
+                        <div style="display: flex; align-items: center; justify-content:center;">
+                            <img src="components/imgs/wind.svg" alt="" style="width: 18px; padding-right: 5px;">
+                            <p class="att">Wind</p>
+                        </div>
+                        <p class="att">--</p>
+                    </center>
+                </div>
+                <div class="cards">
+                    <center>
+                        <div style="display: flex; align-items: center; justify-content:center;">
+                            <img src="components/imgs/rain.svg" alt="" style="width: 18px; padding-right: 5px;">
+                            <p class="att">Chance of Rain</p>
+                        </div>
+                        <p class="att">--</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/app.js"></script>
 </body>
 </html>

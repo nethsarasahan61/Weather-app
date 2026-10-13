@@ -1,5 +1,6 @@
 body{
     background-image: url('/components/imgs/bg-img.jpg');
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .top-panel{
     position: relative;
@@ -11,16 +12,110 @@ body{
     text-decoration: none;    
     text-align: start;
     width: 500px;
+    border: 0px;
 }
 .s-btn{
     padding: 5px 15px 5px 15px;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     color: white;
     background-color: #4196ec;
     transition: 0.8s;
+    border: 0px;
 }
 .s-btn:hover{
-    scale: 1.1;
+    background-color: #298cee;
     transition: 0.8s;
+}
+.card{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    width: 80%;
+    background-color: #b7b7b7;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 0px;
+}
+.card-image{
+    width: 80px;    
+    padding-left: 15px;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+.card-image:not([src]), 
+.card-image[src=""] {
+    opacity: 0;
+}
+.card-image:invalid{
+    opacity: 0;
+}
+.card-body{
+    padding: 24px;
+}
+.card-title{
+    font-size: 20px;
+    color: #1a1a1a;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+.card-text {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+.details-panel{
+    display: flex;   
+    justify-content: center; 
+    align-items: center;
+}
+.info-panel{
+    display: inline-block;
+}
+.info-p-h5{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.location-country{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.mini-c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cards{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    width: 30%;
+    background-color: #a8a8a8;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 0px;
+    margin-left: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.att{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.small-card{
+    width: 95%;
+    background-color: #ddd8d8;
+    border-radius: 15px;
+}
+.l-img{
+    width: 18px; 
+    padding: 0; 
+    margin: 0;
+}
+.l-city{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0; 
+    margin: 0
+}
+.info-p-h6{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
 }
