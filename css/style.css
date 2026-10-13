@@ -1,6 +1,9 @@
 body{
     background-image: url('/components/imgs/bg-img.jpg');
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-attachment: fixed; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
 }
 .top-panel{
     position: relative;
@@ -84,6 +87,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 .cards{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -118,4 +122,10 @@ body{
 .info-p-h6{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
+}
+.hourly-forcast-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }

@@ -5,12 +5,24 @@ function searchCityOnClick(){
     const baseUrl = "http://api.weatherapi.com/v1"
     const key = "6aa42a34e3794aee8cc105256261210"
     fetch(`${baseUrl}/forecast.json?key=${key}&q=${city}&days=7`).then(res=>res.json()).then(data=>{
-        let hourly = data.forecast.forecastday[0].hour;
-        console.log(hourly);
-        console.log(hourly[0].time);
-        console.log(hourly[0].temp_c);
-        console.log(hourly[0].condition.text);
-        console.log(hourly[0].chance_of_rain);
+        const hours = data.forecast.forecastday[0].hour;
+
+        const now = new Date().getHours();
+
+        const nextHours = hours.filter(hour => {
+            return new Date(hour.time).getHours() >= now;
+        }).slice(0, 5);
+
+        nextHours.forEach(hour => {
+            if(hour.time.substring(11,13)==now){
+                console.log("NOW");
+            }else{
+                console.log(hour.time.substring(11,13)-12,"PM");
+            }
+            console.log(hour.temp_c);
+            console.log(hour.condition.text);
+            console.log(hour.condition.icon);            
+});
     })
     fetch(`${baseUrl}/current.json?key=${key}&q=${city}`).then(res=>res.json()).then(data=>{
         let img=getWeatherIcon(data.current.condition.text)
