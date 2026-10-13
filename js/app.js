@@ -3,29 +3,24 @@ let city;
 function searchCityOnClick(){
     city=document.getElementById("search-bar").value
     const baseUrl = "http://api.weatherapi.com/v1"
-    const key = "6aa42a34e3794aee8cc105256261210"
-    fetch(`${baseUrl}/forecast.json?key=${key}&q=${city}&days=7`).then(res=>res.json()).then(data=>{
-        const hours = data.forecast.forecastday[0].hour;
-
-        const now = new Date().getHours();
-
-        const nextHours = hours.filter(hour => {
-            return new Date(hour.time).getHours() >= now;
-        }).slice(0, 5);
-
-        nextHours.forEach(hour => {
-            if(hour.time.substring(11,13)==now){
-                console.log("NOW");
-            }else{
-                console.log(hour.time.substring(11,13)-12,"PM");
-            }
-            console.log(hour.temp_c);
-            console.log(hour.condition.text);
-            console.log(hour.condition.icon);            
-});
-    })
-    fetch(`${baseUrl}/current.json?key=${key}&q=${city}`).then(res=>res.json()).then(data=>{
-        let img=getWeatherIcon(data.current.condition.text)
+    const key = "6aa42a34e3794aee8cc105256261210"    
+    fetch(`${baseUrl}/current.json?key=${key}&q=${city}`).then(res=>res.json()).then(data=>{        
+        if (data.error) {            
+            Swal.fire({
+                title: "City not found! Please enter a valid city.",
+                showClass: { popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                ` },
+                hideClass: { popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                ` }
+            });
+        } else {
+            let img=getWeatherIcon(data.current.condition.text)
         const date = new Date(data.current.last_updated.substring(0,10) + "T00:00:00");
         const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
         document.getElementById("c-main").innerHTML=`
@@ -83,11 +78,39 @@ function searchCityOnClick(){
                     </center>
                 </div>
             </div>
-        `                                
-        console.log(data);        
-
-})
+        `
+        fetch(`${baseUrl}/forecast.json?key=${key}&q=${city}&days=7`).then(res=>res.json()).then(data=>{
+        const hours = data.forecast.forecastday[0].hour;
+        const now = new Date().getHours();
+        const nextHours = hours.filter(hour=>{
+            return new Date(hour.time).getHours()>=now;
+        }).slice(0, 5);
+        let c1="";
+        nextHours.forEach(hour=>{
+            let time;
+            if(hour.time.substring(11,13)==now){
+                time="NOW";
+            }else{
+                time=hour.time.substring(11,13)-12,"PM";            
+            }
+            let temp=hour.temp_c
+            let icon=hour.condition.icon
+            c1+=`
+                <div class="cards">
+                    <center>
+                        <p class="att">${time}</p>
+                        <img src="${icon}" alt="--" style="width:45px;">
+                        <p class="att">${temp}°C</p>
+                    </center>
+                </div>
+            `                        
+        });
+        document.getElementById("hfc").innerHTML=c1;
+    })
+        }        
+    })
 }
+
 function getWeatherIcon(text) {
     text=text.toUpperCase()
     let c;
