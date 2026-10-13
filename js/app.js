@@ -21,6 +21,9 @@ function searchCityOnClick(){
             });
         } else {
             let img=getWeatherIcon(data.current.condition.text)
+            if(img==null){
+                img=data.current.condition.icon
+            }
         const date = new Date(data.current.last_updated.substring(0,10) + "T00:00:00");
         const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
         document.getElementById("c-main").innerHTML=`
@@ -113,7 +116,7 @@ function searchCityOnClick(){
 
 function getWeatherIcon(text) {
     text=text.toUpperCase()
-    let c;
+    let c=null;
     if(text.includes("RAIN")) {
         c="/components/imgs/rainy.svg";        
     }else if (text.includes("CLOUDY")) {
