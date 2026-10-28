@@ -105,7 +105,7 @@ function searchCityOnClick(){
             c1+=`
                 <div class="cards">
                     <center>
-                        <p class="att">${time} PM</p>
+                        <p class="att">${time}</p>
                         <img src="${icon}" alt="--" style="width:45px;">
                         <p class="att">${temp}°C</p>
                     </center>
