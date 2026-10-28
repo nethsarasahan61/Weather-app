@@ -2,7 +2,7 @@ console.log("hello js");
 let city;
 function searchCityOnClick(){
     city=document.getElementById("search-bar").value
-    const baseUrl = "http://api.weatherapi.com/v1"
+    const baseUrl = "https://api.weatherapi.com/v1"
     const key = "6aa42a34e3794aee8cc105256261210"    
     fetch(`${baseUrl}/current.json?key=${key}&q=${city}`).then(res=>res.json()).then(data=>{        
         if (data.error) {            
