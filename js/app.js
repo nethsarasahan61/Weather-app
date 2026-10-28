@@ -2,8 +2,9 @@ console.log("hello js");
 let city;
 function searchCityOnClick(){
     city=document.getElementById("search-bar").value
-    const baseUrl = "https://api.weatherapi.com/v1"
-    const key = "6aa42a34e3794aee8cc105256261210"    
+    const baseUrl = "https://api.weatherapi.com/v1"    
+    const key = "6aa42a34e3794aee8cc105256261210"  
+    console.log(baseUrl);      
     fetch(`${baseUrl}/current.json?key=${key}&q=${city}`).then(res=>res.json()).then(data=>{        
         if (data.error) {            
             Swal.fire({
@@ -91,17 +92,20 @@ function searchCityOnClick(){
         let c1="";
         nextHours.forEach(hour=>{
             let time;
-            if(hour.time.substring(11,13)==now){
+            if(hour.time.substring(11,13)==now) {
                 time="NOW";
             }else{
-                time=hour.time.substring(11,13)-12,"PM";            
+                let h=Number(hour.time.substring(11,13));
+                let ampm=h>=12?"PM":"AM";
+                h=h%12||12;
+                time=h+" "+ampm;
             }
             let temp=hour.temp_c
             let icon=hour.condition.icon
             c1+=`
                 <div class="cards">
                     <center>
-                        <p class="att">${time}PM</p>
+                        <p class="att">${time} PM</p>
                         <img src="${icon}" alt="--" style="width:45px;">
                         <p class="att">${temp}°C</p>
                     </center>
