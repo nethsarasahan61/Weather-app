@@ -1,5 +1,5 @@
 body{
-    background-image: url('/components/imgs/bg-img.jpg');
+    background-image: url('../components/imgs/bg-img.jpg');
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-attachment: fixed; 
     background-size: cover; 

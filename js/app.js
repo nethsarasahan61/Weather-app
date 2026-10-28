@@ -30,7 +30,7 @@ function searchCityOnClick(){
             <center>
                 <div class="small-card" style="margin: 20px;">
                     <div style="display: inline-flex; margin: 0; padding: 10px;">
-                        <img class="l-img" src="/components/imgs/location.svg" alt="">
+                        <img class="l-img" src="./components/imgs/location.svg" alt="">
                         <p class="l-city">${data.location.name},${data.location.country}</p>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ function searchCityOnClick(){
                 <div class="cards">
                     <center>
                         <div style="display: flex; align-items: center; justify-content:center;">
-                            <img src="/components/imgs/humidity.svg" alt="" style="width: 18px; padding-right: 5px">
+                            <img src="./components/imgs/humidity.svg" alt="" style="width: 18px; padding-right: 5px">
                             <p class="att">Humidity</p>
                         </div>
                         <p class="att">${data.current.humidity}%</p>
@@ -65,7 +65,7 @@ function searchCityOnClick(){
                 <div class="cards">
                     <center>
                         <div style="display: flex; align-items: center; justify-content:center;">
-                            <img src="/components/imgs/wind.svg" alt="" style="width: 18px; padding-right: 5px;">
+                            <img src="./components/imgs/wind.svg" alt="" style="width: 18px; padding-right: 5px;">
                             <p class="att">Wind Speed</p>
                         </div>                        
                         <p class="att">${data.current.wind_kph}km/h</p>
@@ -74,7 +74,7 @@ function searchCityOnClick(){
                 <div class="cards">
                     <center>
                         <div style="display: flex; align-items: center; justify-content:center;">
-                            <img src="components/imgs/rain.svg" alt="" style="width: 18px; padding-right: 5px;">
+                            <img src="./components/imgs/rain.svg" alt="" style="width: 18px; padding-right: 5px;">
                             <p class="att">Chance of Rain</p>
                         </div>
                         <p class="att">${data.current.chance_of_rain}%</p>
@@ -101,7 +101,7 @@ function searchCityOnClick(){
             c1+=`
                 <div class="cards">
                     <center>
-                        <p class="att">${time}</p>
+                        <p class="att">${time}PM</p>
                         <img src="${icon}" alt="--" style="width:45px;">
                         <p class="att">${temp}°C</p>
                     </center>
@@ -118,15 +118,15 @@ function getWeatherIcon(text) {
     text=text.toUpperCase()
     let c=null;
     if(text.includes("RAIN")) {
-        c="/components/imgs/rainy.svg";        
+        c="./components/imgs/rainy.svg";        
     }else if (text.includes("CLOUDY")) {
-        c="/components/imgs/cloudy.svg";
+        c="./components/imgs/cloudy.svg";
     }else if (text.includes("SUNNY")) {
-        c="/components/imgs/sunny.svg";
+        c="./components/imgs/sunny.svg";
     }else if (text.includes("THUNDER")) {
-        c="/components/imgs/thunder.svg";
+        c="./components/imgs/thunder.svg";
     }else if (text.includes("OVERCAST")) {
-        c="/components/imgs/overcast.svg";        
+        c="./components/imgs/overcast.svg";        
     }
     return c;
 }
